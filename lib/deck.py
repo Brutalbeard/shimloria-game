@@ -1,7 +1,8 @@
 import random
 from .card import Card
 
-class Deck():
+
+class Deck:
     def __init__(self) -> None:
         self.cards: list[Card] = []
         self.discards: list[Card] = []

@@ -6,16 +6,17 @@ player_names: list[str] = [
     "Bre",
     "Heather",
     "John",
-    ]
+]
 
 character_names: list[str] = [
-    "The General", 
+    "The General",
     "Heir Apparent",
     "The Princess",
     "The Emperor",
-    ]
+]
 
-class Game():
+
+class Game:
     def __init__(self, number_of_players: int) -> None:
         self.players: list[Player] = []
         self.active_player = None
@@ -33,19 +34,23 @@ class Game():
             self.active_player = None
             if self.winner:
                 return self.winner
-            
+
     def player_turn(self, player: Player) -> None:
         player.draw()
-        player.play_card(card=player.hand[0], target_player=random.choice(seq=self.players))
+        player.play_card(
+            card=player.hand[0], target_player=random.choice(seq=self.players)
+        )
 
         if player.influence >= 15:
             self.winner: Player = player
             return
 
-    def create_players(self, number_of_players: int)->list[Player]:
-        players: list[Player]= []
+    def create_players(self, number_of_players: int) -> list[Player]:
+        players: list[Player] = []
         random.shuffle(x=character_names)
         random.shuffle(x=player_names)
         for i in range(number_of_players):
-            players.append(Player(player_name=player_names[i], character_name=character_names[i]))
+            players.append(
+                Player(player_name=player_names[i], character_name=character_names[i])
+            )
         self.players = players

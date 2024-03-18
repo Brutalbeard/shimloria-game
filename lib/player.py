@@ -1,7 +1,8 @@
 from lib.card import Card
 from .deck import Deck
 
-class Player():
+
+class Player:
     def __init__(self, player_name: str, character_name: str) -> None:
         self.player_name: str = player_name
         self.character_name: str = character_name
@@ -16,45 +17,51 @@ class Player():
         # the card instance, and then `:` how many of them go in the deck
         count_of_each_card: dict[Card, int] = {
             Card(
-                name="Steal an Influence", 
-                flavor_text="Theif!", 
-                player_add=1, 
-                player_subtract=0, 
-                target_add=0, 
-                target_subtract=1): 3,
+                name="Steal an Influence",
+                flavor_text="Theif!",
+                player_add=1,
+                player_subtract=0,
+                target_add=0,
+                target_subtract=1,
+            ): 3,
             Card(
-                name="+2 Influence", 
-                flavor_text="Medium yay!!", 
-                player_add=2, 
-                player_subtract=0, 
-                target_add=0, 
-                target_subtract=0): 4,
+                name="+2 Influence",
+                flavor_text="Medium yay!!",
+                player_add=2,
+                player_subtract=0,
+                target_add=0,
+                target_subtract=0,
+            ): 4,
             Card(
-                name="-2 Influence", 
-                flavor_text="Medium shucks!!", 
-                player_add=0, player_subtract=0, 
-                target_add=0, 
-                target_subtract=2): 2,
+                name="-2 Influence",
+                flavor_text="Medium shucks!!",
+                player_add=0,
+                player_subtract=0,
+                target_add=0,
+                target_subtract=2,
+            ): 2,
             Card(
-                name="+3 Influence", 
-                flavor_text="Big yay!!!", 
-                player_add=3, 
-                player_subtract=0, 
-                target_add=0, 
-                target_subtract=0): 1,
+                name="+3 Influence",
+                flavor_text="Big yay!!!",
+                player_add=3,
+                player_subtract=0,
+                target_add=0,
+                target_subtract=0,
+            ): 1,
             Card(
-                name="+2 from Player with Emperor Token", 
-                flavor_text="Emperor's Wrath!", 
-                player_add=2, 
-                player_subtract=0, 
-                target_add=0, 
-                target_subtract=2): 1,
+                name="+2 from Player with Emperor Token",
+                flavor_text="Emperor's Wrath!",
+                player_add=2,
+                player_subtract=0,
+                target_add=0,
+                target_subtract=2,
+            ): 1,
         }
         cards: list[Card] = []
 
         for card, count in count_of_each_card.items():
             cards += [card] * count
-        
+
         self.deck.build_deck(cards=cards)
 
     def draw(self) -> None:

@@ -1,5 +1,13 @@
-class Card():
-    def __init__(self, name, flavor_text, player_add, player_subtract, target_add, target_subtract) -> None:
+class Card:
+    def __init__(
+        self,
+        name,
+        flavor_text,
+        player_add,
+        player_subtract,
+        target_add,
+        target_subtract,
+    ) -> None:
         self.name: str = name
         self.flavor_text: str = flavor_text
         self.player_add: int = player_add
